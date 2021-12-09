@@ -1,0 +1,57 @@
+/* MEDIA QUERY MANAGER
+
+0 - 600px:          Phone
+600 - 900px:        Tablet portrait
+900 - 1200px:       Tablet landscape
+[1200 - 1800]:      default sytles
+1800 + :            Big screen
+
+$breakpoint arguments:
+- phone
+- tab-port
+- tab-lan
+- big-scrn
+
+ORDER: base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == small-phone {
+        @media (max-width: 25em) { @content }; // 400px / 16
+    }    
+    @if $breakpoint == phone {
+        @media (max-width: 50em) { @content }; // 600px / 16
+    }    
+    @if $breakpoint == tab-small {
+        @media (max-width: 56.25em) { @content }; // 900px / 16
+    }    
+    @if $breakpoint == tab-port {
+        @media (max-width: 71.25em) { @content }; // 1140px / 16
+    }    
+    @if $breakpoint == tab-port {
+        @media (max-width: 77.5em) { @content }; // 1240px / 16
+    }    
+    @if $breakpoint == tab-lan {
+        @media (max-width: 81.25em) { @content }; // 1300px / 16
+    }    
+    @if $breakpoint == tab-large {
+        @media (max-width: 87.5em) { @content }; // 1400px / 16
+    }    
+    @if $breakpoint == small-laptop {
+        @media (max-width: 93.75em) { @content }; // 1500px / 16
+    }    
+    @if $breakpoint == laptop {
+        @media (max-width: 101.875em) { @content }; // 1630px / 16
+    }    
+    @if $breakpoint == big-scrn {
+        @media (min-width: 118.75em) { @content }; // 1900px / 16
+    }    
+    @if $breakpoint == bigger-scrn {
+        @media (min-width: 128em) { @content }; // 2048px / 16
+    }    
+    @if $breakpoint == biggest-scrn {
+        @media (min-width: 160em) { @content }; // 2560px / 16
+    }    
+}
